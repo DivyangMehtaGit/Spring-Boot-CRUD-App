@@ -1,5 +1,6 @@
 package com.learn.bootstrap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -10,11 +11,8 @@ import com.learn.repository.EmployeeRepository;
 @Component
 public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
+	@Autowired
 	private EmployeeRepository employeeRepository;
-
-	public DataLoader(EmployeeRepository employeeRepository) {
-		this.employeeRepository = employeeRepository;
-	}
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
